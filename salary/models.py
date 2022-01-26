@@ -44,7 +44,7 @@ class SalaryBlog(models.Model):
     salary                      = models.PositiveIntegerField(null=False, blank=False)
     location                    = models.CharField(max_length=50, null=False, blank=False)
 
-    user                        = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
+    user                        = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     job                         = models.ForeignKey('Job', on_delete=models.CASCADE)
 
     # created                     = models.DateTimeField(auto_now_add=True)
