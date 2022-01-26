@@ -81,6 +81,8 @@ class SalaryBlog(models.Model):
     tool_3                      = models.CharField(max_length=20, null=True, blank=True)
     salary                      = models.PositiveIntegerField(null=False, blank=False)
     location                    = models.CharField(max_length=50, null=False, blank=False)
+
+    user                        = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
     job                         = models.ForeignKey('Job', on_delete=models.CASCADE)
 
 
@@ -91,7 +93,7 @@ class SalaryBlog(models.Model):
 
 
     def __repr__(self):
-        output = f"{self.position} || {self.role} || {self.salary} || {self.location}"
+        output = f"{self.user.username} || {self.position} || {self.role} || {self.salary} || {self.location}"
         return output
     
     def __str__(self):
