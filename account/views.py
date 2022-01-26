@@ -13,3 +13,5 @@ class SignUpView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('account:signup_view')
+
+

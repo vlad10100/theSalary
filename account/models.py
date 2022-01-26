@@ -18,7 +18,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name      = models.CharField(max_length=20)
     last_name       = models.CharField(max_length=20)
 
-    birthday        = models.DateField()
+    birthday        = models.DateField(null=True, blank=True)
 
     # User Status
     is_active       = models.BooleanField(default=True)
@@ -84,6 +84,9 @@ class SalaryBlog(models.Model):
 
     user                        = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
     job                         = models.ForeignKey('Job', on_delete=models.CASCADE)
+
+    # created                     = models.DateTimeField(auto_now_add=True)
+    # updated                     = models.DateTimeField(auto_now=True)
 
 
     class Meta:
