@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     # Local apps
     'account',
+    'salary',
 ]
 
 MIDDLEWARE = [
