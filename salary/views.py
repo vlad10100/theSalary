@@ -8,7 +8,7 @@ from django.views.generic import (CreateView, DetailView, ListView,
 class LandingPageView(TemplateView):
     template_name = 'landing_page.html'
 
-class HomePageView(ListView):
+class HomePageView(TemplateView):
     template_name = 'home.html'
 
 class CreateSalaryBlog(CreateView):

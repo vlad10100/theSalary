@@ -18,5 +18,5 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm 
 
     def get_success_url(self):
-        return reverse_lazy('account:signup_view')
+        return reverse_lazy('salary:home_page')
 

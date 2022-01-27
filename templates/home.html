@@ -4,25 +4,30 @@
 
 
 {% block content %}
-<div class="row">
-    <div class="col-9 pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 class="display-4 fw-normal text-end">The Salary</h1>
-        <p class="fs-5 text-muted text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, reprehenderit non minima in praesentium perspiciatis suscipit facilis velit et sit consequuntur aspernatur necessitatibus unde vel rerum saepe voluptates recusandae quae!</p>
+<div class="container-fluid col-xl-10 col-xxl-8">
+
+  <div class="row align-items-center g-lg-5">
+    <div class="col-lg-9 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1">The Salary</h1>
+      <p class="col-lg-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam, laudantium dolore!\</p>
     </div>
-    <div class="col-3 mb-3 py-2">
-        <form>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-outline-dark">Submit</button>
-            </div>
-          </form>
+
+
+    <div class="col-md-10 mx-auto col-lg-3 text-center">
+      <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
+        <div class="mb-3 mt-2">
+          <button class="w-100 btn btn-md btn-outline-dark">Share Salary Info</button>
+        </div>
+        <div class="mb-3">
+          <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
+        </div>
+      </div>
     </div>
+  </div>
+  <div>
+    <hr>
+  </div>
+
+
 </div>
 {% endblock %}

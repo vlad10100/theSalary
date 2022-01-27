@@ -1,25 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUP</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h4>Custom User Registration</h4>
+{% block title %}SignUp{% endblock %}
 
-    <h1>Sign Up</h1>
-    <hr>
+{% block content %}
 
-    <form method="POST">
-        
-        {% csrf_token %}
-        {{form.as_p}}
-        
-        <button type="submit">SignUp</button>
-    </form>
+
+  <div class="container mb-3 mt-3" style="width: 500px;">
     
-</body>
-</html>
+    <form method="POST">
+      {% csrf_token %}
+
+
+      <div class="form-floating mb-3 text-center">
+        {{ form.username }}
+        <label for="id_username">Username</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        {{ form.email }}
+        <label for="id_email">Email Address</label>
+      </div>
+
+      <div class="row">
+        <div class="form-floating col-lg-6 mb-3">
+          {{ form.first_name }}
+          <label for="id_username" style="margin-left: 10px">First Name</label>
+        </div>
+  
+        <div class="form-floating col-lg-6 mb-3">
+          {{ form.last_name }}
+          <label for="id_username" style="margin-left: 10px">Last Name</label>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        {{ form.birthday }}
+        <label for="id_birthday">Birthday</label>
+      </div>
+
+      
+
+
+      <div class="form-floating mb-3">
+        <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Password">
+        <label for="id_password1">{{form.password1.label}}</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" id="id_password2" name="password2" class="form-control" placeholder="Confirm Password">
+        <label for="id_password2">{{form.password2.label}}</label>
+      </div>
+
+
+
+
+      <button class="btn btn-outline-dark">SignUp</button>
+    </form>
+      
+  </div>
+
+
+
+{% endblock %}
