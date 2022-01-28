@@ -4,19 +4,21 @@
 
 
 {% block content %}
-<div class="container-fluid col-xl-10 col-xxl-8">
+<div class="container col-xl-10 col-xxl-8">
 
   <div class="row align-items-center g-lg-5">
     <div class="col-lg-9 text-center text-lg-start">
       <h1 class="display-4 fw-bold lh-1">The Salary</h1>
-      <p class="col-lg-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam, laudantium dolore!\</p>
+      <p class="col-lg-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit
+        accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam,
+        laudantium dolore!\</p>
     </div>
 
 
     <div class="col-md-10 mx-auto col-lg-3 text-center">
       <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
         <div class="mb-3 mt-2">
-          <button class="w-100 btn btn-md btn-outline-dark">Share Salary Info</button>
+          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'salary:create_salary_blog' %}">Share Salary Info</a>
         </div>
         <div class="mb-3">
           <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
@@ -24,8 +26,20 @@
       </div>
     </div>
   </div>
+
   <div>
     <hr>
+  </div>
+
+  <div class="container">
+    {% for item in list %}
+      <div class="container">
+        <hr>
+        <a class="h4" href="{% url 'salary:salary_blog_detail' item.pk %}">{{item.user.username}}</a>
+        <h5>{{item.position}} || {{item.salary}}  || {{item.yoe}} || {{item.location}}</h5>
+        <hr>
+      </div>
+    {% endfor %}
   </div>
 
 

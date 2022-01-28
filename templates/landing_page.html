@@ -16,15 +16,22 @@
 
 
     <div class="col-md-10 mx-auto col-lg-5">
-      <form class="p-4 p-md-3 border rounded-3 bg-light">
-        <div class="form-floating mb-3  ">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
+
+      <form class="p-4 p-md-3 border rounded-3 bg-light" method="POST">
+
+        {% csrf_token %}
+
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <input type="email" id="id_username" name="username" class="form-control" placeholder="Email">
+          <label for="id_username">Email Address</label>
         </div>
+
+        <div class="form-floating mb-3">
+          <input type="password" id="id_password" name="password" class="form-control" placeholder="Password">
+          <label for="id_password">Password</label>
+        </div>
+
+
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
