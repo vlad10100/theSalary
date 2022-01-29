@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from .models import CustomUser
+from .models import CustomUser, UserProfile
 
 
 
@@ -39,4 +39,11 @@ class LoginForm(AuthenticationForm):
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'email@email.com'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
         }
+
+
+class UserProfile_Form(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ('created', 'updated', 'user')
+
 

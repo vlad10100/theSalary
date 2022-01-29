@@ -17,12 +17,13 @@
 
     <div class="col-md-10 mx-auto col-lg-3 text-center">
       <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
-        <div class="mb-3 mt-2">
-          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'salary:create_salary_blog' %}">Share Salary Info</a>
-        </div>
-        <div class="mb-3">
-          <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
-        </div>
+          <div class="mb-3 mt-2">
+            <a class="w-100 btn btn-md btn-outline-dark" href="">Share Salary Info</a>
+          </div>
+          <div class="mb-3">
+            <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
+          </div>        
+
       </div>
     </div>
   </div>
@@ -35,7 +36,7 @@
     {% for item in list %}
       <div class="container">
         <hr>
-        <a class="h4" href="{% url 'salary:salary_blog_detail' item.pk %}">{{item.user.username}}</a>
+        <a class="h4" href="{% url 'account:userprofile_detail' item.id %}">{{item.user.username}}</a>
         <h5>{{item.position}} || {{item.salary}}  || {{item.yoe}} || {{item.location}}</h5>
         <hr>
       </div>

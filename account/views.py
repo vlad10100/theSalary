@@ -4,8 +4,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
-from django.views.generic import CreateView
-from .forms import CustomUserCreationForm
+from django.views.generic import CreateView, UpdateView, DetailView
+from django.contrib.auth.views import LoginView
+
+from .models import UserProfile
+
+from .forms import CustomUserCreationForm, UserProfile_Form
 
 
 
@@ -19,3 +23,44 @@ class SignUpView(CreateView):
         return reverse_lazy('salary:home_page')
 
 
+class UserLoginView(LoginView):
+    template_name = 'landing_page.html'
+    fields = ['email', 'password']
+    redirect_authenticated_user = True
+    def success_url(self):
+        return reverse_lazy('salary:home_page')
+
+
+class UserProfile_Create(CreateView): # unique constraint
+    template_name = 'profile/create_profile.html'
+    form_class = UserProfile_Form
+    success_url = reverse_lazy('salary:home_page')
+    context_object_name = 'loggedin_user'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        form.instance.user = user 
+        return super(UserProfile_Create, self).form_valid(form)
+    
+    def get_queryset(self):
+        user = self.request.user
+        return UserProfile.objects.get(email=user)
+    
+
+class UserProfile_Update(UpdateView):
+    template_name = 'profile/update_profile.html'
+    form_class = UserProfile_Form
+    success_url = reverse_lazy('salary:home_page')
+    context_object_name = 'loggedin_user'
+    queryset = UserProfile.objects.all()
+
+    def form_valid(self, form):
+        user = self.request.user 
+        form.instance.user = user 
+        return super(UserProfile_Create, self).form_valid(form)
+
+
+class UserProfile_Detail(DetailView):
+    template_name = 'profile/detail_profile.html'
+    queryset = UserProfile.objects.all()
+    context_object_name = 'list'

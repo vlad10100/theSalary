@@ -121,8 +121,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_USER = 'salary:home_page'
+LOGIN_REDIRECT_URL = 'salary:home_page'
 
-LOGOUT_REDIRECT_URL = 'salary:landing_page'
+LOGOUT_REDIRECT_URL = 'salary:home_page'
 
-LOGIN_URL = 'salary:landing_page'
+LOGIN_URL = 'salary:home_page'

@@ -1,11 +1,10 @@
-from django import forms
+# from django import forms
 
-from .models import Industry, Job, SalaryBlog
+# from .models import Industry
 
-
-class SalaryBlog_Form(forms.ModelForm):
-    class Meta:
-        model = SalaryBlog
-        exclude = ('created', 'updated',)
+# class SalaryBlog_Form(forms.ModelForm):
+#     class Meta:
+#         model = SalaryBlog
+#         exclude = ('created', 'updated', 'user')
 
 
