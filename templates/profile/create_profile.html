@@ -4,11 +4,57 @@
 
 
 {% block content %}
-    <div class="container">
-        <form method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" class="btn btn-outline-dark" value="Submit">
-        </form>
-    </div>
+
+<div class="container" style="width: 500px;">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h3>TheSalary | Create Profile</h3>
+            <hr>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.industry }}
+            <label for="id_username">Industry</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.position }}
+            <label for="id_username">Position</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.location }}
+            <label for="id_username">Location</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.yoe }}
+            <label for="id_username">Years of Experience</label>
+        </div>
+
+
+
+
+        <div class="form-floating mb-3 text-center">
+            {{ form.tool_1 }}
+            <label for="id_username">Skill 1</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.tool_2 }}
+            <label for="id_username">Skill 2</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.tool_3 }}
+            <label for="id_username">Skill 3</label>
+        </div>
+
+        <div class="form-floating mb-3 text-center">
+            {{ form.salary }}
+            <label for="id_username">Salary</label>
+        </div>
+        
+
+       
+
+        <input type="submit" class="btn col-12 btn-outline-dark mb-5" value="Submit">
+    </form>
+</div>
+
 {% endblock %}

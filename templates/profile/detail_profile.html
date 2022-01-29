@@ -4,13 +4,30 @@
 
 
 {% block content %}
-    <div class="container">
-        <p>{{list.user.username}}</p>
-        <p>{{list.first_name}}</p>
-        <p>{{list.last_name}}</p>
-        <p>{{list.position}}</p>
-        <p>{{list.role}}</p>
-        <p>{{list.salary}}</p>
-        <p>{{list.location}}</p>
+
+
+<div class="container">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                    dy=".3em">USER IMAGE</text>
+            </svg>
+
+        </div>
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">@{{user.username}}</h3>
+            <strong class="d-inline-block mb-2 text-primary">{{user.email}} || $ {{user.userprofile.salary}}</strong>
+            <hr>
+            <div class="mb-1 text-muted"></div>
+            <p class="card-text mb-auto">Position: {{user.userprofile.position}}</p>
+            <p class="card-text mb-auto">Year/s of experience: {{user.userprofile.yoe}}</p>
+            <p class="card-text mb-auto">Location: {{user.userprofile.location}}</p>
+            <a class="btn btn-outline-dark" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
+        </div>
     </div>
+
+</div>
+
 {% endblock %}

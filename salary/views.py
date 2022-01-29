@@ -22,6 +22,11 @@ class HomePageView(ListView):                                           # retrie
 
 
     
+
+
+
+
+
 # class CreateSalaryBlog(LoginRequiredMixin, UserPassesTestMixin, CreateView):                 # create
 #     template_name = 'salary_blog/create_post.html'
 #     form_class = SalaryBlog_Form

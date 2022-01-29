@@ -4,6 +4,7 @@
 
 
 {% block content %}
+    <p>{{user.id}}</p>
     <div class="container">
         <form method="POST">
             {% csrf_token %}

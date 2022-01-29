@@ -5,59 +5,48 @@
 {% block content %}
 
 
-  <div class="container mb-3 mt-3" style="width: 500px;">
-    
-    <form method="POST">
-      {% csrf_token %}
+<div class="container mb-3 mt-3" style="width: 500px;">
+
+  <form method="POST">
+    {% csrf_token %}
 
 
-      <div class="form-floating mb-3 text-center">
-        {{ form.username }}
-        <label for="id_username">Username</label>
+    <div class="form-floating mb-3 text-center">
+      {{ form.username }}
+      <label for="id_username">Username</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      {{ form.email }}
+      <label for="id_email">Email Address</label>
+    </div>
+
+    <div class="row">
+      <div class="form-floating col-lg-6 mb-3">
+        {{ form.first_name }}
+        <label for="id_username" style="margin-left: 10px">First Name</label>
       </div>
-
-      <div class="form-floating mb-3">
-        {{ form.email }}
-        <label for="id_email">Email Address</label>
+      <div class="form-floating col-lg-6 mb-3">
+        {{ form.last_name }}
+        <label for="id_username" style="margin-left: 10px">Last Name</label>
       </div>
+    </div>
+    <div class="form-floating mb-3">
+      {{ form.birthday }}
+      <label for="id_birthday">Birthday</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Password">
+      <label for="id_password1">{{form.password1.label}}</label>
+    </div>
 
-      <div class="row">
-        <div class="form-floating col-lg-6 mb-3">
-          {{ form.first_name }}
-          <label for="id_username" style="margin-left: 10px">First Name</label>
-        </div>
-  
-        <div class="form-floating col-lg-6 mb-3">
-          {{ form.last_name }}
-          <label for="id_username" style="margin-left: 10px">Last Name</label>
-        </div>
-      </div>
-
-      <div class="form-floating mb-3">
-        {{ form.birthday }}
-        <label for="id_birthday">Birthday</label>
-      </div>
-
-      
-
-
-      <div class="form-floating mb-3">
-        <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Password">
-        <label for="id_password1">{{form.password1.label}}</label>
-      </div>
-
-      <div class="form-floating mb-3">
-        <input type="password" id="id_password2" name="password2" class="form-control" placeholder="Confirm Password">
-        <label for="id_password2">{{form.password2.label}}</label>
-      </div>
-
-
-
-
-      <button class="btn btn-outline-dark">SignUp</button>
-    </form>
-      
-  </div>
+    <div class="form-floating mb-3">
+      <input type="password" id="id_password2" name="password2" class="form-control" placeholder="Confirm Password">
+      <label for="id_password2">Re-enter Password</label>
+    </div>
+    <button class="btn btn-outline-dark col-12">SignUp</button>
+  </form>
+</div>
 
 
 

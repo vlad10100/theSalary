@@ -31,7 +31,7 @@ class UserLoginView(LoginView):
         return reverse_lazy('salary:home_page')
 
 
-class UserProfile_Create(CreateView): # unique constraint
+class UserProfile_Create(CreateView): # unique constraint ! ! !
     template_name = 'profile/create_profile.html'
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
@@ -45,22 +45,25 @@ class UserProfile_Create(CreateView): # unique constraint
     def get_queryset(self):
         user = self.request.user
         return UserProfile.objects.get(email=user)
+
+    def get_object(self):
+        return self.request.user.userprofile
+
+    
     
 
 class UserProfile_Update(UpdateView):
     template_name = 'profile/update_profile.html'
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
-    context_object_name = 'loggedin_user'
-    queryset = UserProfile.objects.all()
 
-    def form_valid(self, form):
-        user = self.request.user 
-        form.instance.user = user 
-        return super(UserProfile_Create, self).form_valid(form)
+    def get_object(self):
+        return self.request.user.userprofile
 
-
+# User's personal details
 class UserProfile_Detail(DetailView):
     template_name = 'profile/detail_profile.html'
     queryset = UserProfile.objects.all()
-    context_object_name = 'list'
+
+    def get_object(self):
+        return self.request.user.userprofile
