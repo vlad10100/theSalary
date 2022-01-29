@@ -26,7 +26,10 @@ class SignUpView(CreateView):
 class UserLoginView(LoginView):
     template_name = 'landing_page.html'
     fields = ['email', 'password']
-    redirect_authenticated_user = True
+    redirect_authenticated_user = True  
+
+    
+
     def success_url(self):
         return reverse_lazy('salary:home_page')
 

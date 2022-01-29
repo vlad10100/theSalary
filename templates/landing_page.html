@@ -4,14 +4,16 @@
 
 
 {% block content %}
-<div class="container col-xl-10 col-xxl-8">
+<div class="container col-xl-10 col-xxl-8" style="padding-top: 70px;">
 
   <div class="row align-items-center g-lg-5">
 
 
     <div class="col-lg-7 text-center text-lg-start">
       <h1 class="display-4 fw-bold lh-1">The Salary</h1>
-      <p class="col-lg-10 fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam, laudantium dolore!\</p>
+      <p class="fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit.0 
+        Placeat quas earum, ut impedit accusantium temporibus rerum fuga distinctio 
+        aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam, laudantium dolore!\</p>
     </div>
 
 
@@ -36,6 +38,9 @@
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
+        </div>
+        <div class="text-center pb-2">
+          <small class="text-muted">Don't have an account yet?<a class="text-decoration-none text-dark" href="{% url 'account:signup_view' %}">SignUp</a></small>
         </div>
         <button class="w-100 btn btn-lg btn-outline-dark" type="submit">Log In</button>
         <hr class="">

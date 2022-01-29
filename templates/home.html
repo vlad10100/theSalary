@@ -7,41 +7,82 @@
 <div class="container col-xl-10 col-xxl-8">
 
   <div class="row align-items-center g-lg-5">
-    <div class="col-lg-9 text-center text-lg-start">
+
+    <div class="col-lg-7 text-center text-lg-start">
       <h1 class="display-4 fw-bold lh-1">The Salary</h1>
-      <p class="col-lg-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit
         accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam,
         laudantium dolore!\</p>
     </div>
 
-
-    <div class="col-md-10 mx-auto col-lg-3 text-center">
-      <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
+    {% if user.is_authenticated %}
+      {% if query in id_list %}
+      <div class="col-md-10 mx-auto col-lg-5 text-center">
+        <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
+          <h6>@{{request.user.username}}</h6>
+          <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
+            {{request.user.userprofile.location}}</h6>
+          <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
+            {{request.user.userprofile.tool_3}}</h6>
+        </div>
+      </div>
+      {% else %}
+      <div class="col-md-10 mx-auto col-lg-5 text-center">
+        <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
           <div class="mb-3 mt-2">
-            <a class="w-100 btn btn-md btn-outline-dark" href="">Share Salary Info</a>
+            <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:userprofile_create' %}">Share Salary Info</a>
           </div>
           <div class="mb-3">
             <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
-          </div>        
+          </div>
+
+        </div>
+      </div>
+      {% endif %}
+    {% else %}
+    <div class="col-md-10 mx-auto col-lg-5 text-center">
+      <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
+        <div class="mb-3 mt-2">
+          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:user_login' %}">Share Salary Info</a>
+        </div>
+        <div class="mb-3">
+          <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
+        </div>
 
       </div>
     </div>
+
+    {% endif %}
+
+
+
+
   </div>
 
   <div>
     <hr>
   </div>
 
-  <div class="container">
-    {% for item in list %}
-      <div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      {% for item in list %}
+      <div>
         <hr>
-        <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark"><h6>@{{item.user.username}}</h6></a>
+        <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark">
+          <h6>@{{item.user.username}}</h6>
+        </a>
         <h6>{{item.position}} || Php {{item.salary}}/month|| {{item.yoe}}-YoE || {{item.location}}</h6>
         <h6>{{item.tool_1}} || {{item.tool_2}} || {{item.tool_3}}</h6>
         <hr>
       </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="contaier col-lg-3">
+      <div class="p-4 mt-3" style="background-color: white; border: solid grey 1px; border-radius: 10px; height: 95%;">
+        <h6>Advertisements</h6>
+        <h6>Accenture HAHA</h6>
+      </div>
+    </div>
   </div>
 
 

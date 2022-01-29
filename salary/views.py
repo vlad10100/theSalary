@@ -15,10 +15,20 @@ from account.models import UserProfile
 
 
 
-class HomePageView(ListView):                                           # retrieve all
+class HomePageView(ListView):                                                            # retrieve all
     template_name = 'home.html'
     context_object_name = 'list'
     queryset = UserProfile.objects.all()
+
+    def get_context_data(self, **kwargs):
+        id_list = UserProfile.objects.values('id')
+        # id_list -->>>  <QuerySet [{'id': 4}, {'id': 7}, {'id': 3}, {'id': 6}, {'id': 1}, {'id': 2}, {'id': 5}]>
+        query = {'id':self.request.user.id}
+        context = super().get_context_data(**kwargs)
+        context['id_list'] = id_list
+        context['query'] = query
+        return context
+
 
 class SalaryPostDetail(DetailView):
     template_name = 'salary_blog/salary_post_detail.html'
