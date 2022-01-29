@@ -25,7 +25,7 @@ class CustomUserCreationForm(forms.Form, UserCreationForm):
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'email@email.com'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
-            'birthday': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Birthday', 'type':'date'}),
+            'birthday': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Birthday', 'type':'date'}),
             'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Re-enter password'})
         }

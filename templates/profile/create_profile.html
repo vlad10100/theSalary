@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<div class="container" style="width: 500px;">
+<div class="container mx-auto" style="width: 500px;">
     <form method="POST">
         {% csrf_token %}
         <div class="container">
@@ -47,7 +47,7 @@
 
         <div class="form-floating mb-3 text-center">
             {{ form.salary }}
-            <label for="id_username">Salary</label>
+            <label for="id_username">Monthly Salary</label>
         </div>
         
 

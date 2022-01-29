@@ -9,8 +9,10 @@
 
   <form method="POST">
     {% csrf_token %}
-
-
+    <div class="container">
+      <h3>TheSalary | SignUp</h3>
+      <hr>
+    </div>
     <div class="form-floating mb-3 text-center">
       {{ form.username }}
       <label for="id_username">Username</label>

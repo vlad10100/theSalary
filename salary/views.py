@@ -20,8 +20,35 @@ class HomePageView(ListView):                                           # retrie
     context_object_name = 'list'
     queryset = UserProfile.objects.all()
 
+class SalaryPostDetail(DetailView):
+    template_name = 'salary_blog/salary_post_detail.html'
+    context_object_name = 'post'
+    queryset = UserProfile.objects.all()
 
-    
+class SalaryPage(ListView):
+    template_name = 'salary_blog/salary_page.html'
+    queryset = UserProfile.objects.all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

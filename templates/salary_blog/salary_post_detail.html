@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <p>{{post.user.username}}</p>
+    <p>{{post.first_name}}</p>
+    <p>{{post.last_name}}</p>
+    <p>{{post.position}}</p>
+    <p>{{post.role}}</p>
+    <p>{{post.salary}}</p>
+    <p>{{post.location}}</p>
+
+
+    <p style="padding-top: 50px;">Add post, info, blog, and resume</p>
+</div>
+{% endblock %}
