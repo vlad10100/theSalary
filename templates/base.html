@@ -34,7 +34,7 @@
 
                 <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                     <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'salary:salary_page' %}">Salary</a>
-                    <a class="me-3 py-2 text-dark text-decoration-none" href="">Industry</a>
+                    <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'salary:industry_page' %}">Industry</a>
                     <a class="me-3 py-2 text-dark text-decoration-none" href="#">Find a Job</a>
                     {% if user.is_authenticated %}
                         <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'account:userprofile_detail' %}"><strong>{{user.username}}</strong></a>

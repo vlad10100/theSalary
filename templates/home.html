@@ -69,7 +69,7 @@
       <div>
         <hr>
         <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark">
-          <h6>@{{item.user.username}}</h6>
+          <h6>@{{item.user.username}}  {{item.user.id}}</h6>
         </a>
         <h6>{{item.position}} || Php {{item.salary}}/month|| {{item.yoe}}-YoE || {{item.location}}</h6>
         <h6>{{item.tool_1}} || {{item.tool_2}} || {{item.tool_3}}</h6>

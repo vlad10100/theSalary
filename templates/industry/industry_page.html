@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Industries{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    {% for industry in industries %}
+    
+    <div class="h-100 p-5 mb-3 mt-5 text-white bg-dark rounded-3">
+        <h2>{{industry}}</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Consequuntur facere amet recusandae velit voluptas minima commodi 
+            reiciendis corporis, vitae facilis porro reprehenderit vel maxime! 
+            Natus ratione iste possimus architecto omnis.</p>
+        <button class="btn btn-outline-light" type="button">Learn More</button>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
