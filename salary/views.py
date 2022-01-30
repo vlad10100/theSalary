@@ -12,8 +12,9 @@ from django.views.generic import (CreateView, DetailView, ListView,
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from account.models import UserProfile
-from .models import Industry
+from .models import Industry, JobBoard
 
+from .forms import CreateJobForm
 
 
 class HomePageView(ListView):                                                            # retrieve all
@@ -49,3 +50,15 @@ class IndustryListPage(ListView):
     template_name = 'industry/industry_page.html'
     queryset = Industry.objects.all()
     context_object_name = 'industries'
+
+
+class JobBoardPage(ListView):
+    template_name = 'job_board/job_board_page.html'
+    queryset = JobBoard.objects.all()
+    context_object_name = 'jobs'
+
+
+class CreateJobPost(CreateView):
+    template_name = 'job_board/create_job.html' 
+    form_class = CreateJobForm 
+    success_url = reverse_lazy('salary:job_board_page')

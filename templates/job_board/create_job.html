@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Job Board{% endblock %}
+
+
+{% block content %}
+<div class="container col-6 mt-5" >
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h3>TheSalary | Create Job Post</h3>
+            <hr>
+        </div>
+
+        <div class="form-floating mb-3 text-center">
+            {{ form.industry }}
+            <label for="id_industry">Industry</label>
+        </div>
+
+        <div class="form-floating mb-3 text-center">
+            {{ form.job_name }}
+            <label for="id_job_name">Job Title</label>
+        </div>
+
+        <div class="form-floating mb-3 text-center">
+            {{ form.description }}
+            <label for="id_description">Job Description</label>
+        </div>
+        <div class="form-floating mb-3 text-center">
+            {{ form.pay }}
+            <label for="id_pay">Monthly Salary</label>
+        </div>
+
+        <button class="btn btn-outline-dark col-12">Create</button>
+
+    </form>
+</div>
+
+{% endblock %}
