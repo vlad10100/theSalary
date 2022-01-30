@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
     # THIRD PARTY APPS
     'django_bootstrap5',
+    
 ]
 
 MIDDLEWARE = [
