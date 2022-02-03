@@ -15,7 +15,6 @@ class CustomUserCreationForm(forms.Form, UserCreationForm):
             'email',
             'first_name',
             'last_name',
-            'birthday',
             'password1',
             'password2'
         ]
@@ -25,10 +24,31 @@ class CustomUserCreationForm(forms.Form, UserCreationForm):
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'email@email.com'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
-            'birthday': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Birthday', 'type':'date'}),
             'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Re-enter password'})
         }
+
+class CustomUser_UpdateForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'birthday',
+            'profile_picture',
+            'is_anonymous'
+        ]
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+            'birthday': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Birthday', 'type':'date'}),
+            'profile_picture': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Profile Picture'}),
+        }
+
+
 
 class LoginForm(AuthenticationForm):
     class Meta:
@@ -44,11 +64,15 @@ class LoginForm(AuthenticationForm):
 class UserProfile_Form(forms.ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ('created', 'updated', 'user')
+        exclude = ['created', 'updated', 'user']
 
         widgets = {
             'industry': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Industry'}),
+            'degree_program': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Degree Program'}),
             'position': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Position'}),
+            'civil_status': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Civil Status'}),
+            'gender': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Gender'}),
+
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
             'yoe': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Years of Experience'}),
 
@@ -57,7 +81,6 @@ class UserProfile_Form(forms.ModelForm):
             'tool_3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'tool_3'}),
 
             'salary': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'salary'}),
-            
         }
 
 

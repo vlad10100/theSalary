@@ -8,15 +8,10 @@
 
 <div class="container mx-auto" style="padding-right: 10%; padding-left: 10%; padding-top: 40px;">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">USER IMAGE</text>
-            </svg>
-
+        <div class="col-3 d-lg-block">
+            <img class="image-fluid mx-auto d-block py-5" style="width: 200px; height: auto;" src="{{user.profile_picture.url}}" alt="Image">
         </div>
-        <div class="col p-4 d-flex flex-column position-static">
+        <div class="col-9 p-4 d-flex flex-column position-static">
             <h3 class="mb-0">@{{user.username}}</h3>
             <strong class="d-inline-block mb-2 text-primary">{{user.email}} || Php {{user.userprofile.salary}} / month</strong>
             <hr>
@@ -24,7 +19,8 @@
             <p class="card-text mb-auto">Position: {{user.userprofile.position}}</p>
             <p class="card-text mb-auto">Year/s of experience: {{user.userprofile.yoe}}</p>
             <p class="card-text mb-auto">Location: {{user.userprofile.location}}</p>
-            <a class="btn btn-outline-dark" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
+            <a class="btn btn-outline-dark my-3" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
+            <a class="btn btn-outline-dark" href="{% url 'account:update_custom_user' %}">User</a>
         </div>
     </div>
 

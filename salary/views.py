@@ -25,7 +25,7 @@ class HomePageView(ListView):                                                   
     def get_context_data(self, **kwargs):
         id_list = UserProfile.objects.values('id')
         # id_list -->>>  <QuerySet [{'id': 4}, {'id': 7}, {'id': 3}, {'id': 6}, {'id': 1}, {'id': 2}, {'id': 5}]>
-        print(id_list)
+        # print(id_list)
         query = {'id':self.request.user.id}
         context = super().get_context_data(**kwargs)
         context['id_list'] = id_list

@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib.auth.views import LogoutView
 
@@ -24,3 +26,7 @@ urlpatterns = [
     path('salary/', include('salary.urls', namespace='salary')),
     path('logout/', LogoutView.as_view(), name='logout_view'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

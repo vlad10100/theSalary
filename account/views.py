@@ -9,7 +9,7 @@ from django.contrib.auth.views import LoginView
 
 from .models import UserProfile
 
-from .forms import CustomUserCreationForm, UserProfile_Form
+from .forms import CustomUserCreationForm, UserProfile_Form, CustomUser_UpdateForm
 
 
 
@@ -28,8 +28,6 @@ class UserLoginView(LoginView):
     fields = ['email', 'password']
     redirect_authenticated_user = True  
 
-    
-
     def success_url(self):
         return reverse_lazy('salary:home_page')
 
@@ -39,7 +37,7 @@ class UserProfile_Create(CreateView): # unique constraint ! ! !
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
     context_object_name = 'loggedin_user'
-
+    
     def form_valid(self, form):
         user = self.request.user 
         form.instance.user = user 
@@ -52,6 +50,15 @@ class UserProfile_Create(CreateView): # unique constraint ! ! !
     def get_object(self):
         return self.request.user.userprofile
 
+
+class CustomUser_Update(UpdateView):
+    template_name = 'profile/update_custom_user.html'
+    form_class = CustomUser_UpdateForm
+    success_url = reverse_lazy('salary:home_page')
+
+    def get_object(self):
+        return self.request.user
+
     
     
 
@@ -62,6 +69,7 @@ class UserProfile_Update(UpdateView):
 
     def get_object(self):
         return self.request.user.userprofile
+    
 
 # User's personal details
 class UserProfile_Detail(DetailView):
