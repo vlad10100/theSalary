@@ -15,6 +15,8 @@ class CustomUserCreationForm(forms.Form, UserCreationForm):
             'email',
             'first_name',
             'last_name',
+            'is_recruiter',
+            'is_common_user',
             'password1',
             'password2'
         ]
@@ -37,7 +39,9 @@ class CustomUser_UpdateForm(forms.ModelForm):
             'last_name',
             'birthday',
             'profile_picture',
-            'is_anonymous'
+            'is_anonymous',
+            'is_recruiter',
+            'is_common_user',
         ]
 
         widgets = {

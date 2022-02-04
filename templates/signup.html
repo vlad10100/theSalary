@@ -33,7 +33,22 @@
         <label for="id_username" style="margin-left: 10px">Last Name</label>
       </div>
     </div>
-    
+
+    <div class="row">
+      <div class="form-check form-switch mb-3 mx-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="id_is_recruiter" name="is_recruiter" checked>
+  
+        <label class="form-check-label" for="id_is_recruiter">Recruiter Status</label>
+  
+      </div>
+      <div class="form-check form-switch mb-3 mx-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="id_is_common_user" name="is_common_user" checked>
+  
+        <label class="form-check-label" for="id_is_common_user">User</label>
+  
+      </div>
+    </div>
+
     <div class="form-floating mb-3">
       <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Password">
       <label for="id_password1">{{form.password1.label}}</label>
@@ -44,10 +59,11 @@
       <label for="id_password2">Re-enter Password</label>
     </div>
     <button class="btn btn-outline-dark col-12">SignUp</button>
-    
+
   </form>
   <div class="text-center pt-2 pb-5">
-    <small class="text-muted">Already have an account?<a class="text-decoration-none text-dark" href="{% url 'account:user_login' %}">Login</a></small>
+    <small class="text-muted">Already have an account?<a class="text-decoration-none text-dark"
+        href="{% url 'account:user_login' %}">Login</a></small>
   </div>
 </div>
 

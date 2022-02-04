@@ -28,7 +28,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     birthday        = models.DateField(null=True, blank=True)
 
     is_anonymous    = models.BooleanField(default=True)
-    
+    is_recruiter    = models.BooleanField(default=False)
+    is_common_user  = models.BooleanField(default=True)
 
 
     # User Status
