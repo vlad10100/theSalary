@@ -82,7 +82,6 @@ class UserProfile_Detail(DetailView):
         if find not in UserProfile.objects.values('id'):
             print('not here')
             return reverse_lazy('account:userprofile_create')
-
         else:
             return self.request.user.userprofile
             

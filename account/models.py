@@ -20,7 +20,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email           = models.EmailField(_('Email Address'), unique=True)
     username        = models.CharField(max_length=15, unique=True, blank=True, null=True)
 
-    profile_picture = models.ImageField(upload_to='images/', default='user.png')
+    profile_picture = models.ImageField(upload_to='media/images/', default='user.png')
 
     first_name      = models.CharField(max_length=20)
     last_name       = models.CharField(max_length=20)
