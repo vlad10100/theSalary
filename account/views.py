@@ -32,7 +32,7 @@ class UserLoginView(LoginView):
         return reverse_lazy('salary:home_page')
 
 
-class UserProfile_Create(CreateView): # unique constraint ! ! !
+class UserProfile_Create(CreateView):
     template_name = 'profile/create_profile.html'
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
