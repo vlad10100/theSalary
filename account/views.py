@@ -77,4 +77,13 @@ class UserProfile_Detail(DetailView):
     queryset = UserProfile.objects.all()
 
     def get_object(self):
-        return self.request.user.userprofile
+        id_num = self.request.user.id
+        find = {'id':id}
+        if find not in UserProfile.objects.values('id'):
+            print('not here')
+            return reverse_lazy('account:userprofile_create')
+
+        else:
+            return self.request.user.userprofile
+            
+        

@@ -19,7 +19,14 @@
             <p class="card-text mb-auto">Position: {{user.userprofile.position}}</p>
             <p class="card-text mb-auto">Year/s of experience: {{user.userprofile.yoe}}</p>
             <p class="card-text mb-auto">Location: {{user.userprofile.location}}</p>
+
+            {% if request.user.userprofile%}
             <a class="btn btn-outline-dark my-3" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
+            {% else %}
+            <a class="btn btn-outline-dark my-3" href="{% url 'account:userprofile_create' %}">Create Profile</a>
+            {% endif %}
+            
+
             <a class="btn btn-outline-dark" href="{% url 'account:update_custom_user' %}">User</a>
         </div>
     </div>
