@@ -4,14 +4,31 @@
 
 
 {% block content %}
-<div class="container">
-    <p>{{post.user.username}}</p>
-    <p>{{post.first_name}}</p>
-    <p>{{post.last_name}}</p>
-    <p>{{post.position}}</p>
-    <p>{{post.role}}</p>
-    <p>{{post.salary}}</p>
-    <p>{{post.location}}</p>
+<div class="container col-8 mt-5">
+    <div class="row">
+        <div class="col-3">
+            <img src="{{post.user.profile_picture.url}}" style="width: 80%; position: relative; left: 30px;" alt="">
+        </div>
+        <div class="col-9">
+            <div class="row pt-2">
+                <hr>
+                <div class="col-6">
+                    <h4>@{{post.user.username}}</h4>
+                    <h3>{{post.first_name}} {{post.last_name}}</h3>
+                    <h3>{{post.position}}</h3>
+                    <p>{{post.location}}</p>
+                </div>
+                <div class="col-6">
+                    <h5>Skills: </h5>
+                    <p>{{post.tool_1}} | {{post.tool_2}} | {{post.tool_3}}</p>
+                    <p>Php {{post.salary}} / month</p>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+    </div>
+
 
 
     <p style="padding-top: 50px;">******Add post, info, blog, and resume</p>
