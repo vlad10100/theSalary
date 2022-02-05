@@ -16,34 +16,47 @@
     </div>
 
     {% if user.is_authenticated %}
-    {% if query in id_list %}
-    {% if user.is_anonymous %}
-    <div class="col-md-10 mx-auto col-lg-5 text-center">
-      <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
-        <h6>@{{request.user.username}} Anonymous</h6>
-        <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
-          {{request.user.userprofile.location}}</h6>
-        <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
-          {{request.user.userprofile.tool_3}}</h6>
-      </div>
-    </div>
-    {% else %}
-    <div class="col-md-10 mx-auto col-lg-5 text-center">
-      <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
-        <h6>@{{request.user.username}}</h6>
-        <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
-          {{request.user.userprofile.location}}</h6>
-        <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
-          {{request.user.userprofile.tool_3}}</h6>
-      </div>
-    </div>
-    {% endif %}
+                {% if query in id_list %}
+                            {% if user.is_anonymous %}
+                            <div class="col-md-10 mx-auto col-lg-5 text-center">
+                              <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
+                                <h6>@{{request.user.username}} Anonymous</h6>
+                                <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
+                                  {{request.user.userprofile.location}}</h6>
+                                <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
+                                  {{request.user.userprofile.tool_3}}</h6>
+                              </div>
+                            </div>
+                            {% else %}
+                            <div class="col-md-10 mx-auto col-lg-5 text-center">
+                              <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
+                                <h6>@{{request.user.username}}</h6>
+                                <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
+                                  {{request.user.userprofile.location}}</h6>
+                                <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
+                                  {{request.user.userprofile.tool_3}}</h6>
+                              </div>
+                            </div>
+                            {% endif %}
+                {% else %}
+                <div class="col-md-10 mx-auto col-lg-5 text-center">
+                  <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
+                    <div class="mb-3 mt-2">
+                      <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:userprofile_create' %}">Share Salary
+                        Info Auth</a>
+                    </div>
+                    <div class="mb-3">
+                      <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
+                    </div>
+
+                  </div>
+                </div>
+                {% endif %}
     {% else %}
     <div class="col-md-10 mx-auto col-lg-5 text-center">
       <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
         <div class="mb-3 mt-2">
-          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:userprofile_create' %}">Share Salary
-            Info</a>
+          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:user_login' %}">Share Salary Info Not is_authenticated</a>
         </div>
         <div class="mb-3">
           <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
@@ -51,20 +64,6 @@
 
       </div>
     </div>
-    {% endif %}
-    {% else %}
-    <div class="col-md-10 mx-auto col-lg-5 text-center">
-      <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
-        <div class="mb-3 mt-2">
-          <a class="w-100 btn btn-md btn-outline-dark" href="{% url 'account:user_login' %}">Share Salary Info</a>
-        </div>
-        <div class="mb-3">
-          <button class="w-100 btn btn-md btn-outline-dark">Recruitment Post</button>
-        </div>
-
-      </div>
-    </div>
-
     {% endif %}
 
 
@@ -86,13 +85,13 @@
             <img src="{{item.user.profile_picture.url}}" style="width: 80%; position: relative; left: 30px;" alt="">
           </div>
           <div class="col-10">
-            
+
             <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark">
               <h6>@{{item.user.username}}</h6>
             </a>
             <h6>{{item.position}} || Php {{item.salary}}/month|| {{item.yoe}}-YoE || {{item.location}}</h6>
             <h6>{{item.tool_1}} || {{item.tool_2}} || {{item.tool_3}}</h6>
-            
+
           </div>
         </div>
       </div>

@@ -83,6 +83,7 @@ class UserProfile_Detail(DetailView):
             print('not here')
             return reverse_lazy('account:userprofile_create')
         else:
+            print('here')
             return self.request.user.userprofile
             
         
