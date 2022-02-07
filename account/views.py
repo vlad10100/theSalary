@@ -4,11 +4,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from django.contrib.auth.views import (LoginView, PasswordResetView, PasswordResetDoneView, 
                                         PasswordResetConfirmView, PasswordResetCompleteView)
 
-from .models import UserProfile
+from .models import UserProfile, CustomUser
 
 from .forms import CustomUserCreationForm, UserProfile_Form, CustomUser_UpdateForm
 
@@ -70,6 +70,16 @@ class UserProfile_Update(UpdateView):
         return self.request.user.userprofile
     
 
+class CustomUser_Delete(DeleteView):
+    template_name = 'profile/delete_custom_user.html'
+    success_url = reverse_lazy('salary:home_page')
+    
+    def get_object(self):
+        return self.request.user
+
+
+
+
 # User's personal details
 class UserProfile_Detail(DetailView):
     template_name = 'profile/detail_profile.html'
@@ -84,7 +94,7 @@ class UserProfile_Detail(DetailView):
         else:
             print('here')
             return self.request.user.userprofile
-            
+
 
 
 class PasswordResetView(PasswordResetView):

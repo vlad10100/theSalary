@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Profile{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h2>Delete Account Confirmation</h2>
+        <h3>Are you sure you want to delete your account?</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-outline-danger">DELETE</button>
+        </form>
+    </div>
+
+{% endblock %}
