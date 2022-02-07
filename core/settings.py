@@ -144,5 +144,16 @@ STATICFILES_DIRS = [
 ]
 
 
-# Email sending function
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+
+# Email sending function
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# EMAIL_HOST = 'smtp.mailgun.org'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'postmaster@sandboxb411f50cd510406b866b0581bab3a17e.mailgun.org'
+# EMAIL_HOST_PASSWORD = 'b79463001988cc9f0521b30b01b66345-d2cc48bc-2682cdb6'
+# EMAIL_USE_TLS = True
