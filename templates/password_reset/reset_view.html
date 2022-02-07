@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+<div class="container col-6 mt-5">
+    <h3>Reset Password</h3>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit' class="btn btn-outline-success">
+            Reset password
+        </button>
+    </form>
+    <div class="">
+        <a href="{% url 'account:user_login' %}">Already have an account?</a>
+    </div>
+</div>
+{% endblock %}

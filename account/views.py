@@ -5,7 +5,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, UpdateView, DetailView
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import (LoginView, PasswordResetView, PasswordResetDoneView, 
+                                        PasswordResetConfirmView, PasswordResetCompleteView)
 
 from .models import UserProfile
 
@@ -60,8 +61,6 @@ class CustomUser_Update(UpdateView):
         return self.request.user
 
     
-    
-
 class UserProfile_Update(UpdateView):
     template_name = 'profile/update_profile.html'
     form_class = UserProfile_Form
@@ -86,4 +85,19 @@ class UserProfile_Detail(DetailView):
             print('here')
             return self.request.user.userprofile
             
-        
+
+
+class PasswordResetView(PasswordResetView):
+    template_name = 'password_reset/reset_view.html'
+    email_template_name = 'password_reset/password_reset_email.html'
+    success_url = reverse_lazy('account:password_reset_done')
+
+class PasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'password_reset/reset_done_view.html'
+
+class PasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'password_reset/reset_confirm_view.html'
+    success_url = reverse_lazy('account:password_reset_complete')
+
+class PasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'password_reset/reset_complete_view.html'

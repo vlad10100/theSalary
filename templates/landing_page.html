@@ -42,6 +42,9 @@
         <div class="text-center pb-2">
           <small class="text-muted">Don't have an account yet?<a class="text-decoration-none text-dark" href="{% url 'account:signup_view' %}">SignUp</a></small>
         </div>
+        <div class="text-center">
+          <small class="text-muted"><a href="{% url 'account:reset-password' %}">forgot password</a></small>
+        </div>
         <button class="w-100 btn btn-lg btn-outline-dark" type="submit">Log In</button>
         <hr class="">
         <div class="text-center">

@@ -1,6 +1,10 @@
 from django.urls import path 
 
-from .views import SignUpView, UserProfile_Create, UserLoginView, UserProfile_Update, UserProfile_Detail, CustomUser_Update
+from .views import (SignUpView, UserProfile_Create, 
+                UserLoginView, UserProfile_Update, 
+                UserProfile_Detail, CustomUser_Update,
+                PasswordResetView, PasswordResetDoneView,
+                PasswordResetConfirmView, PasswordResetCompleteView)
 
 
 app_name = 'account'
@@ -12,5 +16,12 @@ urlpatterns = [
     path('update-customprofile/', CustomUser_Update.as_view(), name='update_custom_user'),
     path('update-profile/', UserProfile_Update.as_view(), name='userprofile_update'),
     path('detail-profile/', UserProfile_Detail.as_view(), name='userprofile_detail'),       
+
+
+    # Password Reset
+    path('reset-password/', PasswordResetView.as_view(), name='reset-password'),
+    path('password-reset-done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password-reset-complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
 ]
