@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}theSalary{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="container col-6">
+        <h3>theSalary  |   Blog Delete Confirmations</h3>
+        
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            <h4>Blog Details</h4>
+            <h5>{{delete}}</h5>
+            <hr class="col-5">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
+    </div>
+
+{% endblock %}

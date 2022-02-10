@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}theSalary{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="container col-6 pt-5">
+        <div class="container">
+            <h3>TheSalary | Create Blog</h3>
+            <hr>
+          </div>
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-floating mb-3 text-center">
+                {{ form.title }}
+                <label for="id_title">Title</label>
+            </div>
+
+            <div class="form-floating mb-3 text-center">
+                <select name="industry" class="form-select" id="id_industry" aria-label="Floating label select example">
+                    <option value></option>
+                    <option value="1">Oil and Gas</option>
+                    <option value="2">Information and Technology</option>
+                    <option value="3">Manufacturing</option>
+                    <option value="4">Argiculture</option>
+                    <option value="5">Construction</option>
+                    <option value="6">Mechanical Engineering</option>
+                    <option value="7">Health Services</option>
+                  </select>
+                <label for="id_industry">Industry</label>
+            </div>
+
+
+            <div class="form-floating mb-3 text-center">
+                <textarea name="blog" class="form-control" placeholder="Leave a comment here" id="id_blog" style="height: 100px"></textarea>
+                <label for="id_blog">Write your Blog here.</label>
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-outline-dark">Post</button>
+        </form>
+    </div>
+
+{% endblock %}

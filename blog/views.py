@@ -1,4 +1,64 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+
+from .forms import IndustryBlogForm, UpdateIndustryBlogForm
+
+from .models import IndustryBlog
+from account.models import CustomUser
+
+
+class CreateIndustryBlog(CreateView):
+    template_name = 'blog/create_blog.html'
+    form_class = IndustryBlogForm
+    queryset = IndustryBlog.objects.all()
+    success_url = reverse_lazy('salary:home_page')
+    
+    def form_valid(self, form):
+        user = self.request.user
+        form.instance.created_by = user
+        print(user, '*')
+        return super(CreateIndustryBlog, self).form_valid(form)
+
+    # def get_queryset(self):
+    #     user = self.request.created_by
+    #     print(UserProfile.objects.get(email=created_by), '**')
+    #     return UserProfile.objects.get(email=created_by)
+
+    # def get_object(self):
+    #     print(self.request.created_by,'***')
+    #     return self.request.created_by
+
+
+class UpdateIndustryBlog(UpdateView):
+    template_name = 'blog/update_blog.html'
+    form_class = UpdateIndustryBlogForm
+    queryset = IndustryBlog.objects.all()
+    success_url = reverse_lazy('salary:home_page')
+
+    def get_context_data(self, **kwargs):
+        item = self.kwargs['pk']
+        context = super().get_context_data(**kwargs)
+        # context['user'] = self.request.user
+        context['update'] = IndustryBlog.objects.get(id=item)
+        return context
+
+
+
+class DeleteIndustryBlog(DeleteView):
+    template_name = 'blog/confirm_deletion.html'
+    queryset = IndustryBlog.objects.all()
+    success_url = reverse_lazy('salary:home_page')
+    context_object_name = 'delete'
+
+    def get_context_data(self, **kwargs):
+        item = self.kwargs['pk']
+        context = super().get_context_data(**kwargs)
+        # context['user'] = self.request.user
+        context['delete'] = IndustryBlog.objects.get(id=item)
+        return context
+
+
+
 

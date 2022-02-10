@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}theSalary{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5 col-6">
+        <div class="container">
+            <h3>TheSalary | Update Blog</h3>
+            <h5>{{update}}</h5>
+            <hr>
+          </div>
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-floating mb-3 text-center">
+                {{ form.title }}
+                <label for="id_title">Title</label>
+            </div>
+
+            <div class="form-floating mb-3 text-center">
+                <textarea name="blog" class="form-control" placeholder="Leave a comment here" id="id_blog" style="height: 100px"></textarea>
+                <label for="id_blog">Write your Blog here.</label>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-outline-dark col-6">Post</button>
+                </div>
+                <div class="col-6 text-end">
+                    <a href="{% url 'blog:delete_blog' update.id %}" class="btn btn-outline-dark col-6">Delete Blog</a>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+{% endblock %}
