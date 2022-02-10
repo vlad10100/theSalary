@@ -25,6 +25,7 @@ urlpatterns = [
     path('account/', include('account.urls', namespace='account')),
     path('salary/', include('salary.urls', namespace='salary')),
     path('logout/', LogoutView.as_view(), name='logout_view'),
+    path('blog/', include('blog.urls', namespace='blog')),
 ]
 
 

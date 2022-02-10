@@ -4,16 +4,23 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container pb-5 mb-5">
     {% for industry in industries %}
     
-    <div class="h-100 p-5 mb-3 mt-5 text-white bg-dark rounded-3">
-        <h2>{{industry}}</h2>
+    <div class="h-100 p-4 pb-3 mt-4 text-white rounded-3" style="background-color: rgb(53, 53, 53);">
+        <h2>{{industry}} Industry</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Consequuntur facere amet recusandae velit voluptas minima commodi 
             reiciendis corporis, vitae facilis porro reprehenderit vel maxime! 
             Natus ratione iste possimus architecto omnis.</p>
-        <button class="btn btn-outline-light" type="button">Learn More</button>
+        <div class="row pt-3">
+            <div class="col-6">
+                <button class="btn btn-outline-light col-6" type="button">Learn More</button>
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-outline-light col-5" type="button">Job Board</button>
+            </div>
+        </div>
     </div>
     {% endfor %}
 </div>

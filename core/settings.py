@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # LOCAL APPS
     'account',
     'salary',
+    'blog',
 
     # THIRD PARTY APPS
     'django_bootstrap5',

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock %}
+{% block title %}theSalary{% endblock %}
 {% load static %}
 
 {% block content %}
@@ -9,7 +9,7 @@
   <div class="row align-items-center g-lg-5">
 
     <div class="col-lg-7 text-center text-lg-start">
-      <h1 class="display-4 fw-bold lh-1">The Salary</h1>
+      <h1 class="display-4 fw-bold lh-1">theSalary</h1>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quas earum, ut impedit
         accusantium temporibus rerum fuga distinctio aliquam iste quis ipsum unde qui, consequatur veniam nesciunt nam,
         laudantium dolore!\</p>
@@ -17,27 +17,15 @@
 
     {% if user.is_authenticated %}
                 {% if query in id_list %}
-                            {% if user.is_anonymous %}
-                            <div class="col-md-10 mx-auto col-lg-5 text-center">
-                              <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
-                                <h6>@{{request.user.username}} Anonymous</h6>
-                                <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
-                                  {{request.user.userprofile.location}}</h6>
-                                <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
-                                  {{request.user.userprofile.tool_3}}</h6>
-                              </div>
-                            </div>
-                            {% else %}
-                            <div class="col-md-10 mx-auto col-lg-5 text-center">
-                              <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
-                                <h6>@{{request.user.username}}</h6>
-                                <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
-                                  {{request.user.userprofile.location}}</h6>
-                                <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
-                                  {{request.user.userprofile.tool_3}}</h6>
-                              </div>
-                            </div>
-                            {% endif %}
+                <div class="col-md-10 mx-auto col-lg-5 text-center">
+                  <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
+                    <h6>@{{request.user.username}}</h6>
+                    <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
+                      {{request.user.userprofile.location}}</h6>
+                    <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
+                      {{request.user.userprofile.tool_3}}</h6>
+                  </div>
+                </div>
                 {% else %}
                 <div class="col-md-10 mx-auto col-lg-5 text-center">
                   <div class="p-4 p-md-3 mt-2 border rounded-3 bg-light">
