@@ -7,6 +7,7 @@ from .forms import IndustryBlogForm, UpdateIndustryBlogForm
 
 from .models import IndustryBlog
 from account.models import CustomUser
+from salary.models import Industry
 
 
 class CreateIndustryBlog(CreateView):
@@ -61,4 +62,17 @@ class DeleteIndustryBlog(DeleteView):
 
 
 
+
+class ListIndustryBlog(ListView):
+    template_name = 'blog/x_industry_blog.html'
+    model = IndustryBlog
+    queryset = IndustryBlog.objects.all()
+
+    def get_context_data(self, **kwargs):
+        pk = self.kwargs['pk']
+        context = super().get_context_data(**kwargs)
+        context['industry'] = Industry.objects.get(id=pk)
+        cat = Industry.objects.get(id=pk)
+        context['blogs'] = IndustryBlog.objects.filter(industry=cat)
+        return context
 

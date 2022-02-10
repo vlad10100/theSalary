@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}theSalary{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        
+        {{industry}}
+        {% for blog in blogs %}
+            <p>{{blog}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
