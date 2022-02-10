@@ -4,11 +4,21 @@
 {% load static %}
 
 {% block content %}
-    <div class="row">
+    <div class="container">
         
         {{industry}}
         {% for blog in blogs %}
-            <p>{{blog}}</p>
+        <div class="h-100 p-4 pb-3 mt-4" style="border: 1px solid grey; border-radius: 5px;">
+            <h5>{{blog.title}}</h5>
+            <p style="font-size: 12px;">{{blog.created_at}} || {{blog.updated_at}}</p>
+            <hr>
+            <p>{{blog.blog}}</p>
+        </div>
         {% endfor %}
     </div>
+
+
+
+
+
 {% endblock %}
