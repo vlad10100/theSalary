@@ -72,9 +72,9 @@
           <div class="col-2">
             <img src="{{item.user.profile_picture.url}}" style="width: 80%; position: relative; left: 30px;" alt="">
           </div>
-          <div class="col-10">
+          <div class="col-10 pt-3">
 
-            <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark">
+            <a href="{% url 'salary:salary_post_detail' %}" class="text-decoration-none text-dark">
               <h6>@{{item.user.username}}</h6>
             </a>
             <h6>{{item.position}} || Php {{item.salary}}/month|| {{item.yoe}}-YoE || {{item.location}}</h6>

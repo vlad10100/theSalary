@@ -38,6 +38,9 @@ class SalaryPostDetail(DetailView):
     context_object_name = 'post'
     queryset = UserProfile.objects.all()
 
+    def get_object(self):
+        return self.request.user
+
 
 
 class SalaryPage(ListView):
