@@ -6,8 +6,13 @@
 {% block content %}
 <div class="container">
 
-    <div class="container">
-        <h1>{{industry}} Industry</h1>
+    <div class="container row pt-5">
+        <div class="col-8">
+            <h1>{{industry}} Industry</h1>
+        </div>
+        <div class="col-4">
+            <a href="{% url 'blog:create_blog' %}" class="btn btn-outline-dark col-12">Create Blog</a>
+        </div>
         <hr>
     </div>
     <div class="row">

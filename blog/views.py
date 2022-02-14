@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
@@ -14,13 +14,28 @@ class CreateIndustryBlog(CreateView):
     template_name = 'blog/create_blog.html'
     form_class = IndustryBlogForm
     queryset = IndustryBlog.objects.all()
+    id_list = []
     success_url = reverse_lazy('salary:home_page')
-    
+
+
     def form_valid(self, form):
         user = self.request.user
         form.instance.created_by = user
         print(user, '*')
-        return super(CreateIndustryBlog, self).form_valid(form)
+        print(form.instance.industry)
+        industry = form.instance.industry
+        query = Industry.objects.get(industry=industry)
+        # self.id_list.append(query.id)  
+        query_id = query.id
+        url = ('/blog/industry/%s'%(str(query_id)))
+        form.save()
+        return redirect(url)
+    
+    # def get_success_url(self):
+    #     query_id = self.id_list[0]
+    #     url = ('/blog/industry/%s'%(str(query_id)))
+    #     return redirect(url)
+
 
     # def get_queryset(self):
     #     user = self.request.created_by
