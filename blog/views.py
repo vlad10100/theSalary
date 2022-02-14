@@ -14,8 +14,6 @@ class CreateIndustryBlog(CreateView):
     template_name = 'blog/create_blog.html'
     form_class = IndustryBlogForm
     queryset = IndustryBlog.objects.all()
-    id_list = []
-    success_url = reverse_lazy('salary:home_page')
 
 
     def form_valid(self, form):
@@ -25,18 +23,11 @@ class CreateIndustryBlog(CreateView):
         print(form.instance.industry)
         industry = form.instance.industry
         query = Industry.objects.get(industry=industry)
-        # self.id_list.append(query.id)  
         query_id = query.id
         url = ('/blog/industry/%s'%(str(query_id)))
         form.save()
         return redirect(url)
     
-    # def get_success_url(self):
-    #     query_id = self.id_list[0]
-    #     url = ('/blog/industry/%s'%(str(query_id)))
-    #     return redirect(url)
-
-
     # def get_queryset(self):
     #     user = self.request.created_by
     #     print(UserProfile.objects.get(email=created_by), '**')
