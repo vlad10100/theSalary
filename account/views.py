@@ -89,9 +89,10 @@ class UserProfile_Detail(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         id_num = self.request.user.id
-        find = {'id':id}
+        find = {'id':id_num}
         if find not in UserProfile.objects.values('id'):
-            print('not here')
+            print('not here', find)
+            print(UserProfile.objects.values('id'))
             return reverse_lazy('account:userprofile_create')
         else:
             print('here')
