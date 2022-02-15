@@ -19,17 +19,18 @@ from .forms import CreateJobForm
 
 class HomePageView(LoginRequiredMixin, ListView):                                                            # retrieve all
     template_name = 'home.html'
-    context_object_name = 'list'
     queryset = UserProfile.objects.all()
 
     def get_context_data(self, **kwargs):
         id_list = UserProfile.objects.values('id')
         query = {'id':self.request.user.id}
-        print(query, self.request.user)
-        print(id_list)
+        print(query)
+        # print(id_list)
         context = super().get_context_data(**kwargs)
         context['id_list'] = id_list
         context['query'] = query
+        print(self.request.user.id)
+        context['list'] = UserProfile.objects.all().exclude(id=self.request.user.id)
         return context
 
 
