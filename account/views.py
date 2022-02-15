@@ -8,6 +8,8 @@ from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from django.contrib.auth.views import (LoginView, PasswordResetView, PasswordResetDoneView, 
                                         PasswordResetConfirmView, PasswordResetCompleteView)
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import UserProfile, CustomUser
 
 from .forms import CustomUserCreationForm, UserProfile_Form, CustomUser_UpdateForm
@@ -33,7 +35,7 @@ class UserLoginView(LoginView):
         return reverse_lazy('salary:home_page')
 
 
-class UserProfile_Create(CreateView):
+class UserProfile_Create(LoginRequiredMixin, CreateView):
     template_name = 'profile/create_profile.html'
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
@@ -52,7 +54,7 @@ class UserProfile_Create(CreateView):
         return self.request.user.userprofile
 
 
-class CustomUser_Update(UpdateView):
+class CustomUser_Update(LoginRequiredMixin, UpdateView):
     template_name = 'profile/update_custom_user.html'
     form_class = CustomUser_UpdateForm
     success_url = reverse_lazy('salary:home_page')
@@ -61,7 +63,7 @@ class CustomUser_Update(UpdateView):
         return self.request.user
 
     
-class UserProfile_Update(UpdateView):
+class UserProfile_Update(LoginRequiredMixin, UpdateView):
     template_name = 'profile/update_profile.html'
     form_class = UserProfile_Form
     success_url = reverse_lazy('salary:home_page')
@@ -70,7 +72,7 @@ class UserProfile_Update(UpdateView):
         return self.request.user.userprofile
     
 
-class CustomUser_Delete(DeleteView):
+class CustomUser_Delete(LoginRequiredMixin, DeleteView):
     template_name = 'profile/delete_custom_user.html'
     success_url = reverse_lazy('salary:home_page')
     
@@ -81,7 +83,7 @@ class CustomUser_Delete(DeleteView):
 
 
 # User's personal details
-class UserProfile_Detail(DetailView):
+class UserProfile_Detail(LoginRequiredMixin, DetailView):
     template_name = 'profile/detail_profile.html'
     queryset = UserProfile.objects.all()
 

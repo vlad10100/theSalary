@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from .forms import IndustryBlogForm, UpdateIndustryBlogForm
 
@@ -10,7 +12,7 @@ from account.models import CustomUser
 from salary.models import Industry
 
 
-class CreateIndustryBlog(CreateView):
+class CreateIndustryBlog(LoginRequiredMixin, CreateView):
     template_name = 'blog/create_blog.html'
     form_class = IndustryBlogForm
     queryset = IndustryBlog.objects.all()
@@ -38,7 +40,7 @@ class CreateIndustryBlog(CreateView):
     #     return self.request.created_by
 
 
-class UpdateIndustryBlog(UpdateView):
+class UpdateIndustryBlog(LoginRequiredMixin, UpdateView):
     template_name = 'blog/update_blog.html'
     form_class = UpdateIndustryBlogForm
     queryset = IndustryBlog.objects.all()
@@ -53,7 +55,7 @@ class UpdateIndustryBlog(UpdateView):
 
 
 
-class DeleteIndustryBlog(DeleteView):
+class DeleteIndustryBlog(LoginRequiredMixin, DeleteView):
     template_name = 'blog/confirm_deletion.html'
     queryset = IndustryBlog.objects.all()
     success_url = reverse_lazy('salary:home_page')
@@ -69,7 +71,7 @@ class DeleteIndustryBlog(DeleteView):
 
 
 
-class ListIndustryBlog(ListView):
+class ListIndustryBlog(LoginRequiredMixin, ListView):
     template_name = 'blog/x_industry_blog.html'
     model = IndustryBlog
     queryset = IndustryBlog.objects.all()

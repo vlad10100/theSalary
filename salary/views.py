@@ -17,7 +17,7 @@ from .models import Industry, JobBoard
 from .forms import CreateJobForm
 
 
-class HomePageView(ListView):                                                            # retrieve all
+class HomePageView(LoginRequiredMixin, ListView):                                                            # retrieve all
     template_name = 'home.html'
     context_object_name = 'list'
     queryset = UserProfile.objects.all()
@@ -33,7 +33,7 @@ class HomePageView(ListView):                                                   
         return context
 
 
-class SalaryPostDetail(DetailView):
+class SalaryPostDetail(LoginRequiredMixin, DetailView):
     template_name = 'salary_blog/salary_post_detail.html'
     context_object_name = 'post'
     queryset = UserProfile.objects.all()
@@ -43,25 +43,25 @@ class SalaryPostDetail(DetailView):
 
 
 
-class SalaryPage(ListView):
+class SalaryPage(LoginRequiredMixin, ListView):
     template_name = 'salary_blog/salary_page.html'
     queryset = UserProfile.objects.all()
     # No context yet...
 
 
-class IndustryListPage(ListView):
+class IndustryListPage(LoginRequiredMixin, ListView):
     template_name = 'industry/industry_page.html'
     queryset = Industry.objects.all()
     context_object_name = 'industries'
 
 
-class JobBoardPage(ListView):
+class JobBoardPage(LoginRequiredMixin, ListView):
     template_name = 'job_board/job_board_page.html'
     queryset = JobBoard.objects.all()
     context_object_name = 'jobs'
 
 
-class CreateJobPost(CreateView):
+class CreateJobPost(LoginRequiredMixin, CreateView):
     template_name = 'job_board/create_job.html' 
     form_class = CreateJobForm 
     success_url = reverse_lazy('salary:job_board_page')
