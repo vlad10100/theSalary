@@ -69,7 +69,25 @@ class IndustryListPage(LoginRequiredMixin, ListView):
 class JobBoardPage(LoginRequiredMixin, ListView):
     template_name = 'job_board/job_board_page.html'
     queryset = JobBoard.objects.all()
-    context_object_name = 'jobs'
+
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['jobs'] = JobBoard.objects.all()
+
+        context['industries'] = Industry.objects.all()
+        return context
+
+class Industry_JobBoardPage(LoginRequiredMixin, ListView):
+    template_name = 'job_board/industry_job_board_page.html'
+    queryset = JobBoard.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        industry = Industry.objects.get(id=self.kwargs['pk'])
+        context['jobs'] = JobBoard.objects.filter(industry=industry)
+        context['industries'] = Industry.objects.all()
+        return context
 
 
 class CreateJobPost(LoginRequiredMixin, CreateView):
