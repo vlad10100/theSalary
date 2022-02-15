@@ -21,11 +21,11 @@
                   <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
                     <div class="row">
                       <div class="col-3">
-                        <img src="{{request.user.profile_picture.url}}" style="width: 150%; padding-top: 15%;" alt="">
+                        <img src="{{request.user.profile_picture.url}}" style="width: 150%;" alt="">
                       </div>
                       <div class="col-9">
                         <h5><strong>@{{request.user.username}}</strong></h5>
-                        <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}}</h6>
+                        <h6>{{request.user.userprofile.position}} {{request.user.userprofile.yoe}}</h6>
                         <h6> {{request.user.userprofile.location}}</h6>
                         <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
                           {{request.user.userprofile.tool_3}}</h6>
@@ -82,7 +82,7 @@
           <div class="col-10 pt-3">
 
             <a href="{% url 'salary:salary_post_detail' item.id %}" class="text-decoration-none text-dark">
-              <h6>@{{item.user.username}}</h6>
+              <h6><strong>@{{item.user.username}}</strong></h6>
             </a>
             <h6>{{item.position}} || Php {{item.salary}}/month|| {{item.yoe}}-YoE || {{item.location}}</h6>
             <h6>{{item.tool_1}} || {{item.tool_2}} || {{item.tool_3}}</h6>
