@@ -9,9 +9,11 @@
         <div class="col-8">
             <a href="{% url 'salary:job_board_page' %}" class="text-decoration-none text-dark"><h2>Job Board</h2></a>
         </div>
+        {% if request.user.is_recruiter %}
         <div class=" col-4 pt-3 text-end">
             <a class="text-decoration-none text-dark" href="{% url 'salary:job-create' %}"><strong>Post a Job</strong></a>
         </div>
+        {% endif %}
         <hr>
     </div>
     

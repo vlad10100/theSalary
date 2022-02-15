@@ -21,8 +21,8 @@ class CreateIndustryBlog(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         user = self.request.user
         form.instance.created_by = user
-        print(user, '*')
-        print(form.instance.industry)
+        # print(user, '*')
+        # print(form.instance.industry)
         industry = form.instance.industry
         query = Industry.objects.get(industry=industry)
         query_id = query.id

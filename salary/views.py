@@ -28,12 +28,12 @@ class HomePageView(LoginRequiredMixin, ListView):                               
     def get_context_data(self, **kwargs):
         id_list = UserProfile.objects.values('id')
         query = {'id':self.request.user.id}
-        print(query)
+        # print(query)
         # print(id_list)
         context = super().get_context_data(**kwargs)
         context['id_list'] = id_list
         context['query'] = query
-        print(self.request.user.id)
+        # print(self.request.user.id)
         context['list'] = UserProfile.objects.all().exclude(id=self.request.user.id)
         return context
 
@@ -51,7 +51,7 @@ class SalaryPostDetail(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         creator_id = self.kwargs['pk']
         creator = CustomUser.objects.get(id=creator_id)
-        print(creator)
+        # print(creator)
         context['blogs'] = IndustryBlog.objects.filter(created_by=creator)
         return context
 
