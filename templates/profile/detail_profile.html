@@ -11,9 +11,9 @@
         <div class="col-3 d-lg-block">
             <img class="image-fluid mx-auto d-block py-5" style="width: 200px; height: auto;" src="{{user.profile_picture.url}}" alt="Image">
         </div>
-        <div class="col-9 p-4 d-flex flex-column position-static">
+        <div class="col-9 p-4 d-flex flex-column position-static text-dark">
             <h3 class="mb-0">@{{user.username}}</h3>
-            <strong class="d-inline-block mb-2 text-primary">{{user.email}} || Php {{user.userprofile.salary}} / month</strong>
+            <strong class="d-inline-block mb-2 text-primary text-dark">{{user.email}} || Php {{user.userprofile.salary}} / month</strong>
             <hr>
             <div class="mb-1 text-muted"></div>
             <p class="card-text mb-auto">Position: {{user.userprofile.position}}</p>
