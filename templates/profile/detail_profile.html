@@ -30,6 +30,18 @@
             <a class="btn btn-outline-dark" href="{% url 'account:update_custom_user' %}">User</a>
         </div>
     </div>
+    <div class="container pt-5">
+        <h2>Blog Posted</h2>
+        <hr>
+        {% for blog in blogs %}
+            <div class="container m-4" style="border: solid rgb(199, 199, 199) 1px; border-radius: 5px;">
+                <h4>{{blog.title}}</h4>
+                <h5>{{blog.industry}} || {{blog.created_at}}</h5>
+                <hr>
+                <p>{{blog.blog}}</p>
+            </div>
+        {% endfor %}
+    </div>
 
 </div>
 

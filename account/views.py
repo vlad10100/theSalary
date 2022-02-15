@@ -11,6 +11,7 @@ from django.contrib.auth.views import (LoginView, PasswordResetView, PasswordRes
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import UserProfile, CustomUser
+from blog.models import IndustryBlog
 
 from .forms import CustomUserCreationForm, UserProfile_Form, CustomUser_UpdateForm
 
@@ -98,7 +99,11 @@ class UserProfile_Detail(LoginRequiredMixin, DetailView):
             print('here')
             return self.request.user.userprofile
 
-
+    def get_context_data(self, **kwargs):
+        creator = self.request.user
+        context = super().get_context_data(**kwargs)
+        context['blogs'] = IndustryBlog.objects.filter(created_by=creator)
+        return context
 
 class PasswordResetView(PasswordResetView):
     template_name = 'password_reset/reset_view.html'
