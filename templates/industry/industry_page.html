@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}Industries{% endblock %}
-
+{% load static %}
 
 {% block content %}
 <div class="container pb-5 mb-5">
@@ -14,9 +14,11 @@
         </div>
         <hr>
     </div>
-    {% for industry in industries %}
+    <div class="row">
+    <div class="col-9">
+        {% for industry in industries %}
     
-    <div class="h-100 p-4 pb-3 mt-4 text-white rounded-3" style="background-color: #455055;">
+    <div class="p-4 pb-3 mt-4 text-white rounded-3" style="background-color: rgb(101, 105, 107);">
         <h2>{{industry}} Industry</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Consequuntur facere amet recusandae velit voluptas minima commodi 
@@ -31,7 +33,17 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+    {% endfor %}    
+    </div>
+
+    <div class="col-3">
+        <div class=" mt-4" style="background-color: white; border: solid grey 1px; border-radius: 15px;">
+            <img src="{% static 'images/acn.jpeg' %}" style="width: 100%; border-radius: 15px;" alt="">
+          </div>
+    </div>
+</div>
+
+
 </div>
 
 {% endblock %}
