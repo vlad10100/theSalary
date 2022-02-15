@@ -11,6 +11,8 @@ from django.views.generic import (CreateView, DetailView, ListView,
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+from .mixins import RecruiterPermissionMixin
+
 from account.models import UserProfile, CustomUser
 from blog.models import IndustryBlog
 
@@ -90,7 +92,7 @@ class Industry_JobBoardPage(LoginRequiredMixin, ListView):
         return context
 
 
-class CreateJobPost(LoginRequiredMixin, CreateView):
+class CreateJobPost(LoginRequiredMixin, RecruiterPermissionMixin, CreateView):
     template_name = 'job_board/create_job.html' 
     form_class = CreateJobForm 
     success_url = reverse_lazy('salary:job_board_page')
