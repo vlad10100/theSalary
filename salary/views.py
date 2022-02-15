@@ -11,7 +11,9 @@ from django.views.generic import (CreateView, DetailView, ListView,
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-from account.models import UserProfile
+from account.models import UserProfile, CustomUser
+from blog.models import IndustryBlog
+
 from .models import Industry, JobBoard
 
 from .forms import CreateJobForm
@@ -42,7 +44,14 @@ class SalaryPostDetail(LoginRequiredMixin, DetailView):
     def get_object(self, **kwargs):
         post_id = self.kwargs['pk']
         return UserProfile.objects.get(id=post_id)
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        creator_id = self.kwargs['pk']
+        creator = CustomUser.objects.get(id=creator_id)
+        print(creator)
+        context['blogs'] = IndustryBlog.objects.filter(created_by=creator)
+        return context
 
 
 class SalaryPage(LoginRequiredMixin, ListView):
