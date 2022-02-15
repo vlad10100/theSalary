@@ -19,11 +19,18 @@
                 {% if query in id_list %}
                 <div class="col-md-10 mx-auto col-lg-5 text-center">
                   <div class="p-4 p-md-3 mt-2" style="background-color: white; border: solid grey 1px; border-radius: 5px;">
-                    <h6>@{{request.user.username}}</h6>
-                    <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}} ||
-                      {{request.user.userprofile.location}}</h6>
-                    <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
-                      {{request.user.userprofile.tool_3}}</h6>
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="{{request.user.profile_picture.url}}" style="width: 120%; padding-top: 15%;" alt="">
+                      </div>
+                      <div class="col-9">
+                        <h5><strong>@{{request.user.username}}</strong></h5>
+                        <h6>{{request.user.userprofile.position}} || {{request.user.userprofile.yoe}}</h6>
+                        <h6> {{request.user.userprofile.location}}</h6>
+                        <h6>{{request.user.userprofile.tool_1}} || {{request.user.userprofile.tool_2}} ||
+                          {{request.user.userprofile.tool_3}}</h6>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {% else %}
