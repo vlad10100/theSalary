@@ -19,26 +19,29 @@
             <p class="card-text mb-auto">Position: {{user.userprofile.position}}</p>
             <p class="card-text mb-auto">Year/s of experience: {{user.userprofile.yoe}}</p>
             <p class="card-text mb-auto">Location: {{user.userprofile.location}}</p>
-
-            {% if request.user.userprofile%}
-            <a class="btn btn-outline-dark my-3" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
-            {% else %}
-            <a class="btn btn-outline-dark my-3" href="{% url 'account:userprofile_create' %}">Create Profile</a>
-            {% endif %}
             
-
-            <a class="btn btn-outline-dark" href="{% url 'account:update_custom_user' %}">User</a>
+            {% if request.user.userprofile%}
+            <a class="btn btn-outline-dark mt-4 mb-1 col-6" href="{% url 'account:userprofile_update' %}">Edit Profile</a>
+            {% else %}
+            <a class="btn btn-outline-dark mt-4 mb-1 col-6" href="{% url 'account:userprofile_create' %}">Create Profile</a>
+            {% endif %}
+            <a class="btn btn-outline-dark col-6" href="{% url 'account:update_custom_user' %}">User</a>
         </div>
     </div>
     <div class="container pt-5">
         <h2>Blog Posted</h2>
         <hr>
         {% for blog in blogs %}
-            <div class="container m-4" style="border: solid rgb(199, 199, 199) 1px; border-radius: 5px;">
+            <div class="container m-4 p-4" style="border: solid rgb(199, 199, 199) 1px; border-radius: 5px;">
                 <h4>{{blog.title}}</h4>
                 <h5>{{blog.industry}} || {{blog.created_at}}</h5>
                 <hr>
                 <p>{{blog.blog}}</p>
+                <div class="text-end">
+                    <a href="{% url 'blog:update_blog' blog.id %}" class="btn btn-outline-dark">Edit</a>
+                    <a href="" class="btn btn-outline-dark">View</a>
+                    <a href="{% url 'blog:delete_blog' blog.id %}" class="btn btn-outline-dark">Delete</a>
+                </div>
             </div>
         {% endfor %}
     </div>
