@@ -43,15 +43,16 @@ class CreateIndustryBlog(LoginRequiredMixin, CreateView):
 class UpdateIndustryBlog(LoginRequiredMixin, UpdateView):
     template_name = 'blog/update_blog.html'
     form_class = UpdateIndustryBlogForm
+    context_object_name = 'update'
     queryset = IndustryBlog.objects.all()
     success_url = reverse_lazy('salary:home_page')
 
-    def get_context_data(self, **kwargs):
-        item = self.kwargs['pk']
-        context = super().get_context_data(**kwargs)
-        # context['user'] = self.request.user
-        context['update'] = IndustryBlog.objects.get(id=item)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     item = self.kwargs['pk']
+    #     context = super().get_context_data(**kwargs)
+    #     # context['user'] = self.request.user
+    #     context['update'] = IndustryBlog.objects.get(id=item)
+    #     return context
 
 
 

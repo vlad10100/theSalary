@@ -41,7 +41,7 @@ class HomePageView(LoginRequiredMixin, ListView):                               
 class SalaryPostDetail(LoginRequiredMixin, DetailView):
     template_name = 'salary_blog/salary_post_detail.html'
     context_object_name = 'post'
-    queryset = UserProfile.objects.all()
+    # queryset = UserProfile.objects.all()
 
     def get_object(self, **kwargs):
         post_id = self.kwargs['pk']
