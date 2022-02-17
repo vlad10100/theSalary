@@ -3,23 +3,23 @@
 
 <p>a start up academy project</p>
 
-create an account
-    - user
-    - recruiter
-modify user profile
-    - upload profile picture
-    - fill up work related details
-blog
-    - create
-    - update
-    - delete
-    - detail view
-    - list view per industry
-job board
-    - recuiter access
-        - crud jobs
-    -users access
-        - read only
+<p>create an account</p>
+<p>    - user</p>
+<p>    - recruiter</p>
+<p>modify user profile</p>
+<p>    - upload profile picture</p>
+<p>    - fill up work related details</p>
+<p>blog</p>
+<p>    - create</p>
+<p>    - update</p>
+<p>    - delete</p>
+<p>    - detail view</p>
+<p>    - list view per industry</p>
+<p>job board</p>
+<p>    - recuiter access</p>
+<p>        - crud jobs</p>
+<p>    -users access</p>
+<p>        - read only</p>
 
-change password
+<p>change password</p>
 
