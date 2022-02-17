@@ -1,25 +1,26 @@
 <h1>theSalary</h1>
 
 
-<p>a start up academy project</p>
+<p>&nbsp a start up academy project</p>
 
-<p>create an account</p>
-<p>/t    - user</p>
-<p>    - recruiter</p>
-<p>modify user profile</p>
-<p>    - upload profile picture</p>
-<p>    - fill up work related details</p>
-<p>blog</p>
-<p>    - create</p>
-<p>    - update</p>
-<p>    - delete</p>
-<p>    - detail view</p>
-<p>    - list view per industry</p>
-<p>job board</p>
-<p>    - recuiter access</p>
-<p>        - crud jobs</p>
-<p>    -users access</p>
-<p>        - read only</p>
 
-<p>change password</p>
+<h4>create an account</h4>
+- user
+- recruiter
+<h4>modify user profile</h4>
+- upload profile picture
+- fill up work related details
+<h4>blog</h4>
+- create
+- update
+- delete
+- detail view
+- list view per industry
+<h4>job board</h4>
+- recuiter access
+- crud jobs
+-users access
+- read only
+
+<h4>change password</h4>
 
