@@ -4,7 +4,7 @@
 <p>a start up academy project</p>
 
 <p>create an account</p>
-<p>    - user</p>
+<p>/t    - user</p>
 <p>    - recruiter</p>
 <p>modify user profile</p>
 <p>    - upload profile picture</p>
