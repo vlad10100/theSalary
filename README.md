@@ -1,5 +1,26 @@
-# Final_Custom_User
+<h1>theSalary</h1>
 
 
-![image](https://user-images.githubusercontent.com/35526774/151047775-05f53511-2306-4480-860c-9546eb5bb05a.png)
+<p>&nbsp a start up academy project</p>
+
+
+<h4>create an account</h4>
+- user
+- recruiter
+<h4>modify user profile</h4>
+- upload profile picture
+- fill up work related details
+<h4>blog</h4>
+- create
+- update
+- delete
+- detail view
+- list view per industry
+<h4>job board</h4>
+- recuiter access
+- crud jobs
+-users access
+- read only
+
+<h4>change password</h4>
 
